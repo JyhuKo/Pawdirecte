@@ -18,15 +18,28 @@ export type Account = Readonly<{
   schoolLogoPath: string;
   /** As HEX. */
   schoolAgendaColor: string;
-  access_token: string;
-  socket_token: string;
+  accessToken: string;
+  socketToken: string;
   gender: "M" | "F";
   profilePictureURL: string;
-  modules: any[]; // TODO
+  modules: any[];
   /**
    * current year cycle
    * @example "2023-2024"
    */
   currentSchoolCycle: string;
-  class: { short: string; long: string };
+  class: {
+    short: string;
+    long: string;
+    isGraded: boolean;
+  };
+  individualParameters: {
+    visualAccessibility: boolean;
+    secureAuthentication: boolean;
+    defaultNoteEntryMode: string;
+    maxDaysBeforeAssignmentDue: string;
+    defaultClassViewType: string;
+    blockPMOnHomePage: boolean;
+    blockNewsOnHomePage: boolean;
+  };
 }>;
