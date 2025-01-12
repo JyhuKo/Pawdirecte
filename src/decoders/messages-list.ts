@@ -1,7 +1,7 @@
 import type { FileKind } from "~/models";
 import type { APIReceivedMessageType, ReceivedMessage } from "~/models/message";
 
-export const decodeMessagesList = (
+export const decodeMesssagesList = (
   message: APIReceivedMessageType
 ): ReceivedMessage => {
   return {
