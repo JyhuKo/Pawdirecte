@@ -24,11 +24,11 @@ export type Grade = Readonly<{
   isOptional: boolean;
   outOf: number;
   date: Date;
-  dateRecorded?: Date; //dateSaisie
+  dateRecorded?: Date;
   subjectFilePath: string;
   correctionFilePath: string;
   skills: Skill[];
-  remarks?: string; // commentaire
-  isSignificant?: boolean; // nonSignificatif
-  inLetters?: boolean; // enLettre
+  remarks?: string;
+  isSignificant?: boolean;
+  inLetters?: boolean;
 }>;
