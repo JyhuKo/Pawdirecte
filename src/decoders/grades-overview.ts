@@ -23,16 +23,20 @@ export const buildOverview = (data: any): GradesOverview => {
           id: subject.codeMatiere,
           childSubjectId: subject.codeSousMatiere,
           isChildSubject: subject.sousMatiere,
-          // TODO
           color: "string",
           coefficient: Number(subject.coef),
-          classAverage: decodeGradeValue(
-            subject.moyenneClasse?.replace(",", ".")
-          ),
+          classAverage: decodeGradeValue(subject.moyenneClasse?.replace(",", ".")),
           maxAverage: decodeGradeValue(subject.moyenneMax?.replace(",", ".")),
           minAverage: decodeGradeValue(subject.moyenneMin?.replace(",", ".")),
           studentAverage: decodeGradeValue(subject.moyenne?.replace(",", ".")),
-          outOf: decodeGradeValue(outOf.toString())
+          outOf: decodeGradeValue(outOf.toString()),
+          classSize: subject.effectif,
+          rank: subject.rang,
+          teachers: subject.professeurs?.map((prof: any) => ({
+            id: prof.id,
+            name: prof.nom
+          })),
+          comments: subject.appreciations
         });
       }
     }
