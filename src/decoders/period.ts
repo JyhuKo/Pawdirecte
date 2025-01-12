@@ -1,17 +1,31 @@
-import type { Period } from "~/models";
-
-export const decodePeriod = (item: any): Period => {
-  return {
-    id: item.idPeriode,
-    startDate: new Date(item.dateDebut),
-    endDate: new Date(item.dateFin),
-    isEnded: item.cloture,
-    councilDate: new Date(item.dateConseil),
-    councilClassroom: item.salleConseil,
-    councilStartHour: item.heureConseil,
-    councilEndHour: item.heureFinConseil,
-    isMockExam: item.examenBlanc,
-    yearly: item.annuel,
-    name: item.periode
+export type Period = Readonly<{
+  id: string;
+  name: string;
+  yearly: boolean;
+  isMockExam: boolean;
+  isEnded: boolean;
+  startDate: Date;
+  endDate: Date;
+  councilDate?: Date;
+  councilStartHour?: string;
+  councilEndHour?: string;
+  councilClassroom?: string;
+  ensembleSubjects?: {
+    calculationDate: string;
+    overallAverage?: string;
+    classAverage?: string;
+    minAverage?: string;
+    maxAverage?: string;
+    classRepresentativeName: string;
+    classRepresentativeAppreciation?: string;
+    classSupervisorName: string;
+    classSupervisorAppreciation?: string;
+    supervisorAppreciation?: string;
+    councilDecision: string;
+    rank?: string;
+    classStrength?: string;
+    overallClassAppreciation?: string;
+    subjects: Array<string>;
+    simulatedSubjects: Array<unknown>;
   };
-};
+}>;
