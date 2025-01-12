@@ -1,11 +1,10 @@
 // Définition de AccountKind avec exportation constante
 export const AccountKind = {
-  Student: "E",
+  Student: "E"
   // Family1: "1",
-  // Family2: "2",
+  // Family2: "2"
   // Staff: "A",
   // Teacher: "P"
 } as const;
-
 
 export type AccountKind = typeof AccountKind[keyof typeof AccountKind];
