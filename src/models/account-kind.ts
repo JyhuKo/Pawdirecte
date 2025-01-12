@@ -1,4 +1,3 @@
-// Définition de AccountKind avec exportation constante
 export const AccountKind = {
   Student: "E"
   // Family1: "1",
