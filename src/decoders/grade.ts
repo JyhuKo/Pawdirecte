@@ -15,7 +15,7 @@ export const decodeGrade = (item: any): Grade => {
     examType: item.typeDevoir,
     max: decodeGradeValue(item.maxClasse),
     min: decodeGradeValue(item.minClasse),
-    outOf: Number(item.noteSur.replace(",", ".")),
+    outOf: Number(item.noteSur.replaceAll(",", ".")),
     period: {
       id: item.codePeriode,
       name: "" 
