@@ -22,7 +22,7 @@ export type Account = Readonly<{
   socketToken: string;
   gender: "M" | "F";
   profilePictureURL: string;
-  modules: Module[];
+  modules: any[]; // TODO
   /**
    * current year cycle
    * @example "2023-2024"
