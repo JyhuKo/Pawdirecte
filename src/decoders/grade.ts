@@ -18,6 +18,7 @@ export const decodeGrade = (item: any): Grade => {
     outOf: Number(item.noteSur.replaceAll(",", ".")),
     period: {
       id: item.codePeriode,
+      // TODO: fill name
       name: "" 
     },
     subject: {
