@@ -9,6 +9,7 @@ export type SubjectOverview = {
     childSubjectId: string;
     isChildSubject: boolean;
     color: string;
+    coefficient: number;
     classAverage: GradeValue;
     maxAverage: GradeValue;
     minAverage: GradeValue;
