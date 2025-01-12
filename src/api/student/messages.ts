@@ -14,9 +14,9 @@ import type { APIReceivedMessagesList } from "~/models/messages-list";
 const getSchoolYear = (): string => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
-  const currentMonth = currentDate.getMonth(); //janvier= 0 dec = 11
+  const currentMonth = currentDate.getMonth(); //janvier= 0 / ddecembre = 11
   
-  // si le mois est apres aout 
+  // si le mois est apres aout ca ajoute + 1 a l'année actuelle sinon ca retire 1 a l'année actuelle
   if (currentMonth >= 7) {
     return `${currentYear}-${currentYear + 1}`;
   } else {
