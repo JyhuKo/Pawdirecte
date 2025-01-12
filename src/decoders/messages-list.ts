@@ -16,7 +16,7 @@ export const decodeMessagesList = (
     files: message.files.map((file) => ({
       id: file.id,
       name: file.libelle,
-      type: file.type as FileKind 
+      type: file.type as FileKind // file.type is always a FileKind type... a decoder would be overkill
     }))
   };
 };
