@@ -1,7 +1,7 @@
 import type { WorkspaceItemKind } from "~/models";
 
 export type WorkspaceItem = Readonly<{
-  id: string;
+  id: number;
   title: string;
   description: string;
   summary: string;
@@ -15,8 +15,11 @@ export type WorkspaceItem = Readonly<{
   isAdmin: boolean;
   teacherRooms: boolean;
   createdBy: string;
-  permissions: 0 | 1 | 2; // ?
-  nbMembers: 0;
+  permissions: 0 | 1 | 2; // ??? rien , lecture , ecriture ?
+  nbMembers: number;
   colorEventAgenda: string;
-  createdAt?: string; //"JJ/MM/AAAA à HH:MM"
+  createdAt?: string;
+  messagerieEleve?: boolean;
+  messagerieFamille?: boolean;
 }>;
+
