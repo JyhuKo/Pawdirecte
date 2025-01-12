@@ -8,6 +8,8 @@ export const decodeDocument = (item: any): Document => {
     date: new Date(item.date),
     kind: decodeDocumentKind(item.type),
     signatureRequired: item.signatureDemandee ?? false,
-    signature: item.signature ?? void 0
+    signature: item.signature ?? void 0,
+    studentId: item.idEleve,
+    statusSignatures: item.etatSignatures 
   };
 };
