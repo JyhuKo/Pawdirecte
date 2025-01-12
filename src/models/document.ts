@@ -7,4 +7,6 @@ export type Document = Readonly<{
   kind: DocumentKind;
   signatureRequired: boolean;
   signature: any;
+  studentId: number;  
+  statusSignatures: any[];  
 }>;
