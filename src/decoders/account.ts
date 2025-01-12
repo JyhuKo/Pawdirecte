@@ -23,8 +23,8 @@ export const decodeAccount = (account: any): Account => {
     schoolUAI: account.profile?.rneEtablissement ?? "",
     schoolLogoPath: account.logoEtablissement,
     schoolAgendaColor: account.couleurAgendaEtablissement,
-    accessToken: account.accessToken ?? "",
-    socketToken: account.socketToken,
+    access_token: account.accessToken ?? "",
+    socket_token: account.socketToken,
     gender,
     profilePictureURL: account.profile?.photo ?? "",
     modules: account.modules,//TODO
