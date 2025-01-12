@@ -1,6 +1,6 @@
 import type { APIReceivedMessageType } from "./message";
 
-export type APIReceivedMessagesList = Readonly<{
+export type APIReceivedMesagesList = Readonly<{
   status: number;
   token: string | null;
   data: {
