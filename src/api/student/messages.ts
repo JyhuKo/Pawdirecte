@@ -1,6 +1,6 @@
 import { decode } from "js-base64";
 import { Request } from "~/core/request";
-import { decodeMesssagesList } from "~/decoders/messages-list";
+import { decodeMessagesList } from "~/decoders/messages-list";
 import {
   type Account,
   type FileKind,
@@ -51,7 +51,7 @@ export const studentReceivedMessages = async (
       response.data.parametrage.destFamille ||
       response.data.parametrage.destProf,
     chats: response.data.messages.received
-      .map(decodeMesssagesList)
+      .map(decodeMessagesList)
       .sort((m1: ReceivedMessage, m2: ReceivedMessage) => {
         if (m1.date < m2.date) return 1;
         if (m1.date > m2.date) return -1;
