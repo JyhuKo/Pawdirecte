@@ -13,6 +13,15 @@ export const decodeTimetableItem = (item: any): TimetableItem => {
     kind: item.typeCours,
     cancelled: item.isAnnule,
     updated: item.isModifie,
-    notes: item.text
+    notes: item.text,
+    className: item.classe,
+    classId: item.classeId,
+    groupName: item.groupe,
+    groupCode: item.groupeCode,
+    isFlexible: item.isFlexible,
+    hasSessionContent: item.contenuDeSeance,
+    hasHomework: item.devoirAFaire,
+    dispensable: item.dispensable,
+    dispense: item.dispense
   };
 };
