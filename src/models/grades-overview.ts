@@ -18,6 +18,7 @@ export type SubjectOverview = {
   }[];
 };
 
+
 export type GradesOverview = {
   [key: string]: SubjectOverview;
 };
