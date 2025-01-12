@@ -10,6 +10,21 @@ import {
 import type { APIReceivedMessage, ReceivedMessage } from "~/models/message";
 import type { APIReceivedMessagesList } from "~/models/messages-list";
 
+
+const getSchoolYear = (): string => {
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth(); //janvier= 0 dec = 11
+  
+  // si le mois est apres aout 
+  if (currentMonth >= 7) {
+    return `${currentYear}-${currentYear + 1}`;
+  } else {
+    return `${currentYear - 1}-${currentYear}`;
+  }
+};
+
+
 export const studentReceivedMessages = async (
   session: Session,
   account: Account
@@ -22,7 +37,7 @@ export const studentReceivedMessages = async (
     .addVersionURL()
     .setToken(session.token)
     .setFormData({
-      anneeMessages: `${(new Date()).getFullYear()}-${new Date().getFullYear() + 1}`
+      anneeMessages: getSchoolYear()
     });
 
   const response: APIReceivedMessagesList = await request.send(session.fetcher);
