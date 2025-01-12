@@ -27,13 +27,7 @@ export const decodeAccount = (account: any): Account => {
     socketToken: account.socketToken,
     gender,
     profilePictureURL: account.profile?.photo ?? "",
-    modules: account.modules.map((module: any) => ({
-      code: module.code,
-      enable: module.enable,
-      ordre: module.ordre,
-      badge: module.badge,
-      params: module.params,
-    })),
+    modules: account.modules,//TODO
     currentSchoolCycle: account.anneeScolaireCourante ?? "",
     class: {
       short: account.profile?.classe?.code ?? "",
