@@ -15,8 +15,13 @@ export type SubjectOverview = {
     minAverage: GradeValue;
     studentAverage: GradeValue;
     outOf: GradeValue;
+    classSize?: number; // effectif
+    rank?: number; //rang
+    teachers?: { id: number; name: string }[]; // profs
+    comments?: string; // appreciations
   }[];
 };
+
 
 export type GradesOverview = {
   [key: string]: SubjectOverview;
