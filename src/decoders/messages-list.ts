@@ -14,6 +14,7 @@ export const decodeMesssagesList = (
     canAnswer: message.canAnswer,
     content: message.content,
     files: message.files.map((file) => ({
+      // to download attachement GET /telechargement.awp?leTypeDeFichier={type}&fichierId={id}
       id: file.id,
       name: file.libelle,
       type: file.type as FileKind // file.type is always a FileKind type... a decoder would be overkill
