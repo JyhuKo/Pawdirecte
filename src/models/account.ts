@@ -18,8 +18,8 @@ export type Account = Readonly<{
   schoolLogoPath: string;
   /** As HEX. */
   schoolAgendaColor: string;
-  accessToken: string;
-  socketToken: string;
+  access_token: string;
+  socket_token: string;
   gender: "M" | "F";
   profilePictureURL: string;
   modules: any[]; // TODO
