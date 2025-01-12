@@ -3,11 +3,8 @@ import type { Account } from "~/models/account";
 
 export const decodeAccount = (account: any): Account => {
   const gender =
-    typeof account.profile.sexe !== "undefined" && account.profile.sexe !== null
-      ? account.profile.sexe
-      : account.civilite === "Mme"
-        ? "F"
-        : "M";
+    account.profile?.sexe ??
+    (account.civilite === "Mme" ? "F" : "M");
 
   return {
     loginID: account.idLogin,
@@ -17,24 +14,34 @@ export const decodeAccount = (account: any): Account => {
     kind: decodeAccountKind(account.typeCompte),
     ogecID: account.codeOgec,
     main: account.main,
-    lastConnection: account.lastConnexion,
+    lastConnection: new Date(account.lastConnexion),
     firstName: account.prenom,
     lastName: account.nom,
     email: account.email,
-    phone: account.profile.telPortable,
+    phone: account.profile?.telPortable ?? "",
     schoolName: account.nomEtablissement,
-    schoolUAI: account.profile.rneEtablissement,
+    schoolUAI: account.profile?.rneEtablissement ?? "",
     schoolLogoPath: account.logoEtablissement,
     schoolAgendaColor: account.couleurAgendaEtablissement,
-    access_token: account.accessToken,
-    socket_token: account.socketToken,
+    accessToken: account.accessToken ?? "",
+    socketToken: account.socketToken,
     gender,
-    profilePictureURL: account.profile.photo,
+    profilePictureURL: account.profile?.photo ?? "",
     modules: account.modules,
-    currentSchoolCycle: account.anneeScolaireCourante,
+    currentSchoolCycle: account.anneeScolaireCourante ?? "",
     class: {
-      short: account.profile.classe.code,
-      long: account.profile.classe.libelle
-    }
+      short: account.profile?.classe?.code ?? "",
+      long: account.profile?.classe?.libelle ?? "",
+      isGraded: !!account.profile?.classe?.estNote,
+    },
+    individualParameters: {
+      visualAccessibility: !!account.parametresIndividuels?.accessibiliteVisuelle,
+      secureAuthentication: !!account.parametresIndividuels?.checkAuthentificationSecure,
+      defaultNoteEntryMode: account.parametresIndividuels?.typeSaisieNotesDefaut ?? "",
+      maxDaysBeforeAssignmentDue: account.parametresIndividuels?.nbJoursMaxRenduDevoirCDT ?? "",
+      defaultClassViewType: account.parametresIndividuels?.typeViewCDTDefaut ?? "",
+      blockPMOnHomePage: !!account.parametresIndividuels?.blocPMAccueil,
+      blockNewsOnHomePage: !!account.parametresIndividuels?.blocActuAccueil,
+    },
   };
 };
