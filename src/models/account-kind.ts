@@ -9,12 +9,3 @@ export const AccountKind = {
 
 
 export type AccountKind = typeof AccountKind[keyof typeof AccountKind];
-
-
-export type Module = {
-  code: string;
-  enable: boolean;
-  order: number;
-  badge: number;
-  params: Record<string, any>;  
-};
