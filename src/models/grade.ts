@@ -3,11 +3,10 @@ import type { Skill } from "~/models/skill";
 import type { Subject } from "~/models/subject";
 
 // TODO: integrate QCM
-
 export type Grade = Readonly<{
   id: number; 
   comment: string;
-    /**
+   /**
    * @example "Devoir Maison"
    * @example "Devoir sur table"
    */
