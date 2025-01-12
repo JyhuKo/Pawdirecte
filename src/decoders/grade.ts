@@ -4,20 +4,21 @@ import type { Grade } from "~/models";
 
 export const decodeGrade = (item: any): Grade => {
   return {
+    id: item.id, 
     comment: item.devoir,
     average: decodeGradeValue(item.moyenneClasse),
     isOptional: item.valeurisee,
     skills: item.elementsProgramme.map(decodeSkill),
     coefficient: Number(item.coef),
     date: new Date(item.date),
+    dateRecorded: item.dateSaisie ? new Date(item.dateSaisie) : undefined,
     examType: item.typeDevoir,
     max: decodeGradeValue(item.maxClasse),
     min: decodeGradeValue(item.minClasse),
-    outOf: item.noteSur.replaceAll(",", "."),
+    outOf: Number(item.noteSur.replace(",", ".")),
     period: {
       id: item.codePeriode,
-      // TODO: fill name
-      name: ""
+      name: "" 
     },
     subject: {
       id: item.codeMatiere,
@@ -26,6 +27,10 @@ export const decodeGrade = (item: any): Grade => {
     },
     subjectFilePath: item.uncSujet,
     correctionFilePath: item.uncCorrige,
-    value: decodeGradeValue(item.valeur)
+    value: decodeGradeValue(item.valeur),
+    remarks: item.commentaire, 
+    isSignificant: !item.nonSignificatif, 
+    inLetters: item.enLettre 
   };
 };
+
