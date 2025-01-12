@@ -14,4 +14,14 @@ export type TimetableItem = Readonly<{
   cancelled: boolean;
   updated: boolean;
   notes: string;
+  className: string;
+  classId: number;
+  groupName: string;
+  groupCode: string;
+  isFlexible: boolean;
+  hasSessionContent: boolean;
+  hasHomework: boolean;
+  dispensable: boolean;
+  dispense: number;
+}>;
 }>;
