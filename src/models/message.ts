@@ -39,7 +39,6 @@ export type APIReceivedMessageType = Readonly<{
     signature: Record<string, any>;
   }[];
   from: {
-    name: string;
     nom: string;
     prenom: string;
     particule: string;
