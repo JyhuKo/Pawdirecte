@@ -11,7 +11,9 @@ void (async function main() {
     credentials.student_username,
     credentials.student_password
   );
-  const assignments = await studentHomeworks(session, account, "2025-01-14");
+  const Date = prompt("Enter date in the format YYYY-MM-DD:");
+  const assignmentsDate = Date ? Date : '2025-01-14';
+  const assignments = await studentHomeworks(session, account, assignmentsDate);
 
   console.log(JSON.stringify(assignments.subjects));
 })();
