@@ -12,5 +12,5 @@ void (async function main() {
     credentials.student_password
   );
   const grades = await studentGrades(session, account, ""); // sensitive NOT ALL ACCOUNTS CAN GO BACK
-  console.log(JSON.stringify(grades));
+  console.log(JSON.stringify(grades, null, 2));
 })();
