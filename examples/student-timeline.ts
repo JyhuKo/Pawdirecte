@@ -52,8 +52,12 @@ void (async function main() {
       console.log("Target Schools:", item.targetSchools);
       console.log("Color Name:", item.colorName);
 
-      console.log("Content:\n");
-      console.log(item.content || "(no content)");
+      console.log("Content: ");
+      if (item.content.includes('data:image/jpeg;base64')) {
+        console.log('Contient une image en base64');
+      } else {
+        console.log(item.content || '(no content)');
+      }
     });
   }
   else {
