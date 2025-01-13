@@ -41,10 +41,16 @@ void (async function main() {
     homepageTimeline.forEach((item) => {
       console.log("---");
 
-      console.log("Creation date:", item.creationDate.toLocaleString());
-      console.log("Start date:", item.startDate.toLocaleString());
-      console.log("End date:", item.endDate.toLocaleString());
-      console.log("Written by:", item.authorName);
+      console.log("Written By:", item.authorName);
+      console.log("Author ID:", item.authorId);
+      console.log("Author First Name:", item.authorFirstName);
+      console.log("Author Title:", item.authorTitle);
+      console.log("Creation Date:", item.creationDate.toLocaleString());
+      console.log("Start Date:", item.startDate.toLocaleString());
+      console.log("End Date:", item.endDate.toLocaleString());
+      console.log("Target:", item.target);
+      console.log("Target Schools:", item.targetSchools);
+      console.log("Color Name:", item.colorName);
 
       console.log("Content:\n");
       console.log(item.content || "(no content)");
