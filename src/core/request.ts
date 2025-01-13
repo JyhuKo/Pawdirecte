@@ -22,7 +22,7 @@ export class Request {
   }
 
   public addVersionURL(): Request {
-    this.url.searchParams.set("v", "4.69.0");
+    this.url.searchParams.set("v", "6.17.0");
     return this;
   }
 
