@@ -11,9 +11,10 @@ void (async function main() {
     credentials.student_username,
     credentials.student_password
   );
-  const startDate = new Date("2024-01-12");
+  const StartDate = prompt("Enter date in the format YYYY-MM-DD:");
+  const CheckStartDate = StartDate ? new Date(StartDate) : new Date('2025-01-14');
 
-  const timetable = await studentTimetable(session, account, startDate);
+  const timetable = await studentTimetable(session, account, CheckStartDate);
 
   timetable.forEach((item) => {
     console.log("---");
