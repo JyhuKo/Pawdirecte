@@ -11,7 +11,7 @@ void (async function main() {
     credentials.student_username,
     credentials.student_password
   );
-  const assignments = await studentHomeworks(session, account, "2024-10-14");
+  const assignments = await studentHomeworks(session, account, "2025-01-14");
 
   console.log(JSON.stringify(assignments.subjects));
 })();
