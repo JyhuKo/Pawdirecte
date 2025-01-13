@@ -24,4 +24,3 @@ export type TimetableItem = Readonly<{
   dispensable: boolean;
   dispense: number;
 }>;
-}>;
