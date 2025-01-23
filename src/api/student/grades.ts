@@ -1,6 +1,7 @@
 import { Request } from "~/core/request";
 import { decodeGrade } from "~/decoders/grade";
 import { buildOverview } from "~/decoders/grades-overview";
+import { Settings } from "~/decoders/grade-params"; 
 import { decodePeriod } from "~/decoders/period";
 import {
   type Account,
