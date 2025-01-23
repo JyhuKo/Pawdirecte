@@ -1,32 +1,72 @@
+import type { Settings } from "~/models";
 
-import { decodeGradeValue } from "~/decoders/grade-value";
-import { decodeSkill } from "~/decoders/skill";
-import type { Grade } from "~/models";
+export const decodeGrade = (item: any): Settings => {
+  const params = item.parametrage;
 
-export const decodeGrade = (item: any): Grade => {
   return {
-    comment: item.devoir,
-    average: decodeGradeValue(item.moyenneClasse),
-    isOptional: item.valeurisee,
-    skills: item.elementsProgramme.map(decodeSkill),
-    coefficient: Number(item.coef),
-    date: new Date(item.date),
-    examType: item.typeDevoir,
-    max: decodeGradeValue(item.maxClasse),
-    min: decodeGradeValue(item.minClasse),
-    outOf: item.noteSur.replaceAll(",", "."),
-    period: {
-      id: item.codePeriode,
-      // TODO: fill name
-      name: ""
+    evaluationColors: {
+      eval1: params.couleurEval1,
+      eval2: params.couleurEval2,
+      eval3: params.couleurEval3,
+      eval4: params.couleurEval4,
     },
-    subject: {
-      id: item.codeMatiere,
-      subSubjectId: item.codeSousMatiere,
-      name: item.libelleMatiere
+    evaluationLabels: {
+      eval1: params.libelleEval1,
+      eval2: params.libelleEval2,
+      eval3: params.libelleEval3,
+      eval4: params.libelleEval4,
     },
-    subjectFilePath: item.uncSujet,
-    correctionFilePath: item.uncCorrige,
-    value: decodeGradeValue(item.valeur)
+    averageDisplay: params.affichageMoyenne,
+    averageHomeworkDisplay: params.affichageMoyenneDevoir,
+    subjectPositionDisplay: params.affichagePositionMatiere,
+    competenceTabDisplay: params.affichageOngletCompetence,
+    gradeDisplay: params.affichageNote,
+    competenceDisplay: params.affichageCompetence,
+    evaluationComponentsDisplay: params.affichageEvaluationsComposantes,
+    componentGraphDisplay: params.affichageGraphiquesComposantes,
+    componentGraphCalculationMode: params.modeCalculGraphiquesComposantes,
+    numericCompetenceDisplay: params.affichageCompNum,
+    numericCompetenceLabels: {
+      label1: params.libelleEvalCompNum1,
+      label2: params.libelleEvalCompNum2,
+      label3: params.libelleEvalCompNum3,
+    },
+    appreciationDisplay: params.affichageAppreciation,
+    teacherAppreciations: params.appreciationsProf,
+    mainTeacherAppreciation: params.appreciationProfPrinc,
+    mentionDisplay: params.affichageMention,
+    appreciationCE: params.affichageAppreciationCE,
+    appreciationVS: params.affichageAppreciationVS,
+    appreciationCN: params.affichageAppreciationCN,
+    appreciationClass: params.affichageAppreciationClasse,
+    appreciationClosedPeriod: params.affichageAppreciationPeriodeCloturee,
+    averageOnlyForClosedPeriod: params.moyenneUniquementPeriodeCloture,
+    averagePeriodStatement: params.moyennePeriodeReleve,
+    annualAveragePeriod: params.moyennePeriodeAnnuelle,
+    averageOutsidePeriods: params.moyennePeriodeHorsP,
+    studentAverageInGrades: params.moyenneEleveDansNotes,
+    studentAverage: params.moyenneEleve,
+    studentAverageInGlobalAverage: params.moyenneEleveDansMoyenne,
+    generalAverage: params.moyenneGenerale,
+    subjectCoefficientAverage: params.moyenneCoefMatiere,
+    classAverage: params.moyenneClasse,
+    minimumAverage: params.moyenneMin,
+    maximumAverage: params.moyenneMax,
+    rankAverage: params.moyenneRang,
+    averageOutOf: params.moyenneSur,
+    averageGraph: params.moyenneGraphique,
+    simulationAverages: params.moyennesSimulation,
+    gradeCoefficient: params.coefficientNote,
+    subjectCoefficientColumn: params.colonneCoefficientMatiere,
+    boldGradesBelowAverage: params.noteGrasSousMoyenne,
+    boldGradesAboveAverage: params.noteGrasAudessusMoyenne,
+    assignmentLabels: params.libelleDevoir,
+    assignmentDates: params.dateDevoir,
+    assignmentTypes: params.typeDevoir,
+    gradesOnlyForClosedPeriods: params.noteUniquementPeriodeCloture,
+    gradesPeriodStatement: params.notePeriodeReleve,
+    annualGradesPeriod: params.notePeriodeAnnuelle,
+    gradesOutsidePeriods: params.notePeriodeHorsP,
+    appreciationLabels: params.libellesAppreciations,
   };
 };
