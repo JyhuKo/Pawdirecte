@@ -1,1 +1,67 @@
 
+export type Settings = Readonly<{
+  evaluationColors: {
+    eval1: string;
+    eval2: string;
+    eval3: string;
+    eval4: string;
+  };
+  evaluationLabels: {
+    eval1: string;
+    eval2: string;
+    eval3: string;
+    eval4: string;
+  };
+  averageDisplay: boolean;
+  averageHomeworkDisplay: boolean;
+  subjectPositionDisplay: boolean;
+  competenceTabDisplay: number;
+  gradeDisplay: boolean;
+  competenceDisplay: boolean;
+  evaluationComponentsDisplay: boolean;
+  componentGraphDisplay: boolean;
+  componentGraphCalculationMode: string;
+  numericCompetenceDisplay: boolean;
+  numericCompetenceLabels: {
+    label1: string;
+    label2: string;
+    label3: string;
+  };
+  appreciationDisplay: boolean;
+  teacherAppreciations: boolean;
+  mainTeacherAppreciation: boolean;
+  mentionDisplay: boolean;
+  appreciationCE: boolean;
+  appreciationVS: boolean;
+  appreciationCN: boolean;
+  appreciationClass: boolean;
+  appreciationClosedPeriod: boolean;
+  averageOnlyForClosedPeriod: boolean;
+  averagePeriodStatement: boolean;
+  annualAveragePeriod: boolean;
+  averageOutsidePeriods: boolean;
+  studentAverageInGrades: boolean;
+  studentAverage: boolean;
+  studentAverageInGlobalAverage: boolean;
+  generalAverage: boolean;
+  subjectCoefficientAverage: boolean;
+  classAverage: boolean;
+  minimumAverage: boolean;
+  maximumAverage: boolean;
+  rankAverage: boolean;
+  averageOutOf: number;
+  averageGraph: boolean;
+  simulationAverages: boolean;
+  gradeCoefficient: boolean;
+  subjectCoefficientColumn: boolean;
+  boldGradesBelowAverage: boolean;
+  boldGradesAboveAverage: boolean;
+  assignmentLabels: boolean;
+  assignmentDates: boolean;
+  assignmentTypes: boolean;
+  gradesOnlyForClosedPeriods: boolean;
+  gradesPeriodStatement: boolean;
+  annualGradesPeriod: boolean;
+  gradesOutsidePeriods: boolean;
+  appreciationLabels: string[];
+}>;
